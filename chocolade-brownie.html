@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recept</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <div class="recept-header">
+    <div class="recept-header-inner">
+      <a class="back-btn" href="../index.html">← Terug naar recepten</a>
+      <div id="receptTags" style="margin-bottom:0.5rem;"></div>
+      <h1 id="receptTitel">Laden…</h1>
+      <p class="beschrijving" id="receptBeschrijving"></p>
+      <div class="recept-meta" id="receptMeta"></div>
+    </div>
+  </div>
+
+  <div class="recept-body" id="receptBody">
+    <!-- Wordt ingevuld via JS -->
+  </div>
+
+  <footer>
+    <p>🍴 Gemaakt met liefde &amp; goede ingrediënten</p>
+  </footer>
+
+  <!-- Laad eerst de receptendatabank, dan de recept-logica -->
+  <script src="../recepten.js"></script>
+  <script>
+    // ============================================================
+    // Recept-ID bepalen vanuit de bestandsnaam
+    // ============================================================
+    const paginaNaam = window.location.pathname.split('/').pop().replace('.html', '');
+    const recept = recepten.find(r => r.id === paginaNaam);
+
+    if (!recept) {
+      document.getElementById('receptTitel').textContent = 'Recept niet gevonden';
+      document.getElementById('receptBeschrijving').textContent = 'Controleer of de ID in recepten.js overeenkomt met de bestandsnaam.';
+    } else {
+      renderRecept(recept);
+    }
+
+    let huidigPersonen = recept ? recept.porties : 4;
+
+    function renderRecept(r) {
+      document.title = r.titel + ' — Mijn Recepten';
+
+      // Tags in header
+      const typeLabels = {
+        ontbijt: '🥞 Ontbijt', lunch: '🥗 Lunch',
+        avondeten: '🍝 Avondeten', dessert: '🍰 Dessert', snack: '🫙 Snack'
+      };
+      const dieetLabels = {
+        vegetarisch: '🌱 Vegetarisch', vegan: '🌿 Vegan', glutenvrij: '🌾 Glutenvrij'
+      };
+
+      document.getElementById('receptTags').innerHTML = [
+        `<span class="tag tag-type" style="margin-right:0.4rem">${typeLabels[r.type]||r.type}</span>`,
+        ...r.dieet.map(d => `<span class="tag tag-dieet" style="margin-right:0.4rem">${dieetLabels[d]||d}</span>`)
+      ].join('');
+
+      document.getElementById('receptTitel').textContent = r.titel;
+      document.getElementById('receptBeschrijving').textContent = r.beschrijving;
+
+      document.getElementById('receptMeta').innerHTML = `
+        <div class="recept-meta-item">⏱ ${r.tijdLabel}</div>
+        <div class="recept-meta-item">👥 Standaard ${r.porties} personen</div>
+      `;
+
+      // Foto
+      const fotoHtml = r.foto
+        ? `<div class="recept-foto"><img src="../${r.foto}" alt="${r.titel}"></div>`
+        : `<div class="recept-foto">${r.emoji}</div>`;
+
+      // Ingrediënten
+      const ingredientenHtml = `
+        <div>
+          <div class="personen-box">
+            <h3>🧑‍🍳 Aantal personen</h3>
+            <div class="personen-control">
+              <button class="personen-btn" onclick="wijzigPersonen(-1)">−</button>
+              <span class="personen-getal" id="personenGetal">${r.porties}</span>
+              <button class="personen-btn" onclick="wijzigPersonen(1)">+</button>
+              <span class="personen-label">personen</span>
+            </div>
+          </div>
+          <div class="ingredienten-box">
+            <h2>🛒 Ingrediënten</h2>
+            <ul class="ingredienten-lijst" id="ingredientenLijst">
+              ${renderIngredienten(r.ingredienten, r.porties)}
+            </ul>
+          </div>
+        </div>
+      `;
+
+      // Stappen
+      const stappenHtml = `
+        <div class="stappen-box">
+          <h2>👨‍🍳 Bereiding</h2>
+          ${r.stappen.map((s, i) => `
+            <div class="stap">
+              <div class="stap-nummer">${i + 1}</div>
+              <div class="stap-tekst">${s}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      // Tips
+      const tipsHtml = r.tips ? `
+        <div class="tips-box">
+          <h3>💡 Tips &amp; variaties</h3>
+          <p>${r.tips}</p>
+        </div>
+      ` : '';
+
+      document.getElementById('receptBody').innerHTML = `
+        ${fotoHtml}
+        ${ingredientenHtml}
+        ${stappenHtml}
+        ${tipsHtml}
+      `;
+    }
+
+    function renderIngredienten(ingredienten, basisPorties) {
+      return ingredienten.map(ing => {
+        const hoev = ing.hoeveelheid * huidigPersonen;
+        const netjes = formateerHoeveelheid(hoev);
+        const eenheid = ing.eenheid === 'snufje' ? '' : ing.eenheid;
+        return `
+          <li>
+            <span class="ingredient-naam">${ing.naam}</span>
+            <span class="ingredient-hoeveelheid">${netjes} ${eenheid}</span>
+          </li>
+        `;
+      }).join('');
+    }
+
+    function formateerHoeveelheid(n) {
+      if (n === Math.floor(n)) return n.toString();
+      // Mooie breuken
+      const breuken = [
+        [0.25, '¼'], [0.33, '⅓'], [0.5, '½'], [0.67, '⅔'], [0.75, '¾']
+      ];
+      const heel = Math.floor(n);
+      const rest = +(n - heel).toFixed(2);
+      const breuk = breuken.find(([v]) => Math.abs(rest - v) < 0.04);
+      if (breuk) return (heel > 0 ? heel + ' ' : '') + breuk[1];
+      return +n.toFixed(1);
+    }
+
+    function wijzigPersonen(delta) {
+      huidigPersonen = Math.max(1, Math.min(20, huidigPersonen + delta));
+      document.getElementById('personenGetal').textContent = huidigPersonen;
+      document.getElementById('ingredientenLijst').innerHTML =
+        renderIngredienten(recept.ingredienten, recept.porties);
+    }
+  </script>
+</body>
+</html>

@@ -1,11 +1,70 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <title>CCCooking</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mijn Recepten</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Welkom op CCCooking!</h1>
-  <p>Mijn kookwebsite komt eraan...</p>
+
+  <header>
+    <div class="header-inner">
+      <div class="header-leaf">🌿</div>
+      <h1>Mijn Recepten</h1>
+      <p class="header-sub">Zelfgemaakt, met liefde</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="filter-section">
+      <div class="filter-label">Filteren op:</div>
+      <div class="filters">
+        <div class="filter-group">
+          <span class="filter-group-title">Type</span>
+          <button class="filter-btn active" data-filter="type" data-value="all">Alles</button>
+          <button class="filter-btn" data-filter="type" data-value="ontbijt">🥞 Ontbijt</button>
+          <button class="filter-btn" data-filter="type" data-value="lunch">🥗 Lunch</button>
+          <button class="filter-btn" data-filter="type" data-value="avondeten">🍝 Avondeten</button>
+          <button class="filter-btn" data-filter="type" data-value="dessert">🍰 Dessert</button>
+          <button class="filter-btn" data-filter="type" data-value="snack">🫙 Snack</button>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group-title">Dieet</span>
+          <button class="filter-btn" data-filter="dieet" data-value="vegetarisch">🌱 Vegetarisch</button>
+          <button class="filter-btn" data-filter="dieet" data-value="vegan">🌿 Vegan</button>
+          <button class="filter-btn" data-filter="dieet" data-value="glutenvrij">🌾 Glutenvrij</button>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group-title">Tijd</span>
+          <button class="filter-btn" data-filter="tijd" data-value="snel">⚡ &lt; 30 min</button>
+          <button class="filter-btn" data-filter="tijd" data-value="medium">🕐 30–60 min</button>
+          <button class="filter-btn" data-filter="tijd" data-value="lang">🍲 &gt; 60 min</button>
+        </div>
+      </div>
+      <div class="active-filters" id="activeFilters"></div>
+    </section>
+
+    <section class="recipes-section">
+      <div class="recipes-count" id="recipesCount"></div>
+      <div class="recipe-grid" id="recipeGrid">
+        <!-- Recepten worden hier geladen via JS -->
+      </div>
+      <div class="no-results" id="noResults" style="display:none;">
+        <span>😕</span>
+        <p>Geen recepten gevonden met deze filters.</p>
+        <button onclick="resetFilters()">Filters wissen</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>🍴 Gemaakt met liefde &amp; goede ingrediënten</p>
+  </footer>
+
+  <script src="recepten.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
