@@ -37,14 +37,14 @@
     const paginaNaam = window.location.pathname.split('/').pop().replace('.html', '');
     const recept = recepten.find(r => r.id === paginaNaam);
 
+   let huidigPersonen = recept ? recept.porties : 4;
+
     if (!recept) {
       document.getElementById('receptTitel').textContent = 'Recept niet gevonden';
       document.getElementById('receptBeschrijving').textContent = 'Controleer of de ID in recepten.js overeenkomt met de bestandsnaam.';
     } else {
       renderRecept(recept);
     }
-
-    let huidigPersonen = recept ? recept.porties : 4;
 
     function renderRecept(r) {
       document.title = r.titel + ' — Mijn Recepten';
