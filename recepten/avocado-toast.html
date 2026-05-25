@@ -28,16 +28,12 @@
     <p>🍴 Gemaakt met liefde &amp; goede ingrediënten</p>
   </footer>
 
-  <!-- Laad eerst de receptendatabank, dan de recept-logica -->
   <script src="recepten.js"></script>
   <script>
-    // ============================================================
-    // Recept-ID bepalen vanuit de bestandsnaam
-    // ============================================================
     const paginaNaam = window.location.pathname.split('/').pop().replace('.html', '');
     const recept = recepten.find(r => r.id === paginaNaam);
 
-   let huidigPersonen = recept ? recept.porties : 4;
+    let huidigPersonen = recept ? recept.porties : 4;
 
     if (!recept) {
       document.getElementById('receptTitel').textContent = 'Recept niet gevonden';
@@ -49,7 +45,6 @@
     function renderRecept(r) {
       document.title = r.titel + ' — Mijn Recepten';
 
-      // Tags in header
       const typeLabels = {
         ontbijt: '🥞 Ontbijt', lunch: '🥗 Lunch',
         avondeten: '🍝 Avondeten', dessert: '🍰 Dessert', snack: '🫙 Snack'
@@ -71,12 +66,10 @@
         <div class="recept-meta-item">👥 Standaard ${r.porties} personen</div>
       `;
 
-      // Foto
       const fotoHtml = r.foto
         ? `<div class="recept-foto"><img src="../${r.foto}" alt="${r.titel}"></div>`
         : `<div class="recept-foto">${r.emoji}</div>`;
 
-      // Ingrediënten
       const ingredientenHtml = `
         <div>
           <div class="personen-box">
@@ -91,13 +84,12 @@
           <div class="ingredienten-box">
             <h2>🛒 Ingrediënten</h2>
             <ul class="ingredienten-lijst" id="ingredientenLijst">
-              ${renderIngredienten(r.ingredienten, r.porties)}
+              ${renderIngredienten(r.ingredienten)}
             </ul>
           </div>
         </div>
       `;
 
-      // Stappen
       const stappenHtml = `
         <div class="stappen-box">
           <h2>👨‍🍳 Bereiding</h2>
@@ -110,7 +102,6 @@
         </div>
       `;
 
-      // Tips
       const tipsHtml = r.tips ? `
         <div class="tips-box">
           <h3>💡 Tips &amp; variaties</h3>
@@ -126,7 +117,7 @@
       `;
     }
 
-    function renderIngredienten(ingredienten, basisPorties) {
+    function renderIngredienten(ingredienten) {
       return ingredienten.map(ing => {
         const hoev = ing.hoeveelheid * huidigPersonen;
         const netjes = formateerHoeveelheid(hoev);
@@ -142,7 +133,6 @@
 
     function formateerHoeveelheid(n) {
       if (n === Math.floor(n)) return n.toString();
-      // Mooie breuken
       const breuken = [
         [0.25, '¼'], [0.33, '⅓'], [0.5, '½'], [0.67, '⅔'], [0.75, '¾']
       ];
@@ -157,7 +147,7 @@
       huidigPersonen = Math.max(1, Math.min(20, huidigPersonen + delta));
       document.getElementById('personenGetal').textContent = huidigPersonen;
       document.getElementById('ingredientenLijst').innerHTML =
-        renderIngredienten(recept.ingredienten, recept.porties);
+        renderIngredienten(recept.ingredienten);
     }
   </script>
 </body>
