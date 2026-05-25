@@ -24,9 +24,10 @@
     <!-- Wordt ingevuld via JS -->
   </div>
 
-  <footer>
-    <p>🍴 Gemaakt ddmet liefde &amp; goede ingrediënten</p>
+ <footer>
+    <p>© CCCooking Mannen Weten Waarom.</p>
   </footer>
+
 
   <script src="recepten.js"></script>
   <script>
@@ -73,7 +74,7 @@
       const ingredientenHtml = `
         <div>
           <div class="personen-box">
-            <h3>🧑‍🍳 Aantal personen</h3>
+            <h3>Aantal personen</h3>
             <div class="personen-control">
               <button class="personen-btn" onclick="wijzigPersonen(-1)">−</button>
               <span class="personen-getal" id="personenGetal">${r.porties}</span>
@@ -92,7 +93,7 @@
 
       const stappenHtml = `
         <div class="stappen-box">
-          <h2>👨‍🍳 Bereiding</h2>
+          <h2>Bereiding</h2>
           ${r.stappen.map((s, i) => `
             <div class="stap">
               <div class="stap-nummer">${i + 1}</div>
