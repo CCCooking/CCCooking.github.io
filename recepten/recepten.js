@@ -23,7 +23,6 @@ const recepten = [
   {
     id: "Ragumettagliatelle",
     titel: "Ragu met tagliatelle",
-    emoji: "🍝",
     foto: "images/ragu.png",
     beschrijving: "Een Italiaanse stoofpot met spiering, pancetta, witte wijn en selder",
     type: "avondeten",
@@ -58,4 +57,73 @@ const recepten = [
     ],
     
   },
+    {
+    id: "Stoofvlees",
+    titel: "Stoofvlees",
+    foto: "images/stoofvlees.png",
+    beschrijving: "Belgische stoofvlees met friet",
+    type: "avondeten",
+    dieet: [],
+    tijd: "lang",
+    tijdLabel: "3u",
+    porties: 4,
+    ingredienten: [
+      { naam: "Stoofvlees (rundsvlees)",             hoeveelheid: 1, eenheid: "kg" },
+      { naam: "St bernardus abt 12",                hoeveelheid: 2, eenheid: "flesjes" },
+      { naam: "Kruidentuiltje",             hoeveelheid: 1, eenheid: "" },
+      { naam: "Ui",                   hoeveelheid: 2, eenheid: "stuk" },
+      { naam: "Kruidnagel",             hoeveelheid: 1,   eenheid: "stuk" },
+      { naam: "Luikse appel-perenstroop", hoeveelheid: 2, eenheid: "el"},
+      { naam: "Boterham",            hoeveelheid: 1,   eenheid: "stuk" },
+      { naam: "Mosterd",       hoeveelheid: 2, eenheid: "el" },
+    ],
+    stappen: [
+      "Snij de uien in stukken (moet niet fijn).",
+      "Zet stoofpot op vuur met klontje boter en voeg de uien er aan toe (moeten niet bruin zien).",
+      "Bak het vlees in aparte pan tot ze goudbruin zien. Tijdens het bakken kruiden met peper en zout.",
+      "Doe de stukjes vlees in de stoofpot met uien.",
+      "Hou de braadpan met aanbaksels bij en schenk daarin het bier. (even schuren aan onderkant pan zodat aanbaksels los komen).",
+      "Zodra het bier kookt, giet je het in de stoofpot.",
+      "Voeg het kruidentuiltje toe.",
+      "Voeg de kruidnagel toe en de Loonse (of Luikse) appel-perenstroop.",
+      "Smeer mosterd op de boterham. Leg de boterham in de pot, met de besmeerde zijde naar onder.",
+      "Laat de stoofpot op een zachtvuur met deksel voor 2u30. Laatste halfuur deksel er af.",
+      "Af en toe roeren.",
+
+    ],
+    
+  },
+    {
+    id: "Macaronimetkaasenhesp",
+    titel: "Macaroni met kaas en hesp",
+    foto: "images/fotocomingsoon.png",
+    beschrijving: "Snel gerecht doorheen de week. Vult goed",
+    type: "avondeten",
+    dieet: [],
+    tijd: "snel",
+    tijdLabel: "30min",
+    porties: 4,
+    ingredienten: [
+      { naam: "Boter",             hoeveelheid: 83.34, eenheid: "g" },
+      { naam: "Vloeiende bloem",                hoeveelheid: 66.67, eenheid: "g" },
+      { naam: "Melk",             hoeveelheid: 0.8, eenheid: "l" },
+      { naam: "Gekookte hesp",                   hoeveelheid: 8-12, eenheid: "sneedjes" },
+      { naam: "macaroni",             hoeveelheid: 500,   eenheid: "g" },
+      { naam: "Gruyère kaas",       hoeveelheid: 100, eenheid: "g" }
+    ],
+    stappen: [
+      "Hesp in stukjes snijden (vierkant).",
+      "Boter laten smelten in pot en van het vuur halen nadien.",
+      "VLoeiende bloem toevoegen en goed roeren.",
+      "Melk toevoegen en goed roeren.",
+      "Verder de pot aan de kook brengen op zacht vuur al roerend.",
+      "Water opzetten voor macaroni.",
+      "Macaroni koken.",
+      "Wanneer saus kookt van het vuur halen",
+      "Gruyère toevoegen en goed roeren.",
+      "Hesp toevoegen en goed roeren.",
+      "Voeg nog een beetje nootmuskaat toe"
+    ],
+    
+  },  
 ];
