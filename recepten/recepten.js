@@ -68,14 +68,14 @@ const recepten = [
     tijdLabel: "3u",
     porties: 4,
     ingredienten: [
-      { naam: "Stoofvlees (rundsvlees)",             hoeveelheid: 1, eenheid: "kg" },
-      { naam: "St bernardus abt 12",                hoeveelheid: 2, eenheid: "flesjes" },
-      { naam: "Kruidentuiltje",             hoeveelheid: 1, eenheid: "" },
-      { naam: "Ui",                   hoeveelheid: 2, eenheid: "stuk" },
-      { naam: "Kruidnagel",             hoeveelheid: 1,   eenheid: "stuk" },
-      { naam: "Luikse appel-perenstroop", hoeveelheid: 2, eenheid: "el"},
-      { naam: "Boterham",            hoeveelheid: 1,   eenheid: "stuk" },
-      { naam: "Mosterd",       hoeveelheid: 2, eenheid: "el" },
+      { naam: "Stoofvlees (rundsvlees)",             hoeveelheid: 250, eenheid: "g" },
+      { naam: "St bernardus abt 12",                hoeveelheid: 0.5, eenheid: "flesjes" },
+      { naam: "Kruidentuiltje",             hoeveelheid: 0.25, eenheid: "stuk" },
+      { naam: "Ui",                   hoeveelheid: 0.5, eenheid: "stuk" },
+      { naam: "Kruidnagel",             hoeveelheid: 0.25,   eenheid: "stuk" },
+      { naam: "Luikse appel-perenstroop", hoeveelheid: 0.5, eenheid: "el"},
+      { naam: "Boterham",            hoeveelheid: 0.25,   eenheid: "stuk" },
+      { naam: "Mosterd",       hoeveelheid: 0.5, eenheid: "el" },
     ],
     stappen: [
       "Snij de uien in stukken (moet niet fijn).",
@@ -104,12 +104,12 @@ const recepten = [
     tijdLabel: "30min",
     porties: 4,
     ingredienten: [
-      { naam: "Boter",             hoeveelheid: 83.34, eenheid: "g" },
-      { naam: "Vloeiende bloem",                hoeveelheid: 66.67, eenheid: "g" },
-      { naam: "Melk",             hoeveelheid: 0.8, eenheid: "l" },
-      { naam: "Gekookte hesp",                   hoeveelheid: 8-12, eenheid: "sneedjes" },
-      { naam: "macaroni",             hoeveelheid: 500,   eenheid: "g" },
-      { naam: "Gruyère kaas",       hoeveelheid: 100, eenheid: "g" }
+      { naam: "Boter",             hoeveelheid: 21.25, eenheid: "g" },
+      { naam: "Vloeiende bloem",                hoeveelheid: 16.67, eenheid: "g" },
+      { naam: "Melk",             hoeveelheid: 0.2, eenheid: "l" },
+      { naam: "Gekookte hesp",                   hoeveelheid: 2-4, eenheid: "sneedjes" },
+      { naam: "macaroni",             hoeveelheid: 150,   eenheid: "g" },
+      { naam: "Gruyère kaas",       hoeveelheid: 37.5, eenheid: "g" }
     ],
     stappen: [
       "Hesp in stukjes snijden (vierkant).",
