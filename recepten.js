@@ -138,7 +138,7 @@ const recepten = [
     porties: 4,
     ingredienten: [
       { naam: "Boter",             hoeveelheid: 11, eenheid: "g" },
-      { naam: "Vloeiende bloem",                hoeveelheid: 8,33, eenheid: "g" },
+      { naam: "Vloeiende bloem",                hoeveelheid: 8.33, eenheid: "g" },
       { naam: "Melk",             hoeveelheid: 0.125, eenheid: "l" },
       { naam: "Gekookte hesp",                   hoeveelheid: 2, eenheid: "sneedjes" },
       { naam: "Totelinni",             hoeveelheid: 170,   eenheid: "g" },
