@@ -114,7 +114,7 @@ const recepten = [
     stappen: [
       "Hesp in stukjes snijden (vierkant).",
       "Boter laten smelten in pot en van het vuur halen nadien.",
-      "VLoeiende bloem toevoegen en goed roeren.",
+      "Vloeiende bloem toevoegen en goed roeren.",
       "Melk toevoegen en goed roeren.",
       "Verder de pot aan de kook brengen op zacht vuur al roerend.",
       "Water opzetten voor macaroni.",
@@ -125,5 +125,44 @@ const recepten = [
       "Voeg nog een beetje nootmuskaat toe"
     ],
     
-  },  
+  },
+  {
+    id: "Torteloni",
+    titel: "Torteloni",
+    foto: "images/fotocomingsoon.png",
+    beschrijving: "",
+    type: "avondeten",
+    dieet: [],
+    tijd: "medium",
+    tijdLabel: "1u",
+    porties: 4,
+    ingredienten: [
+      { naam: "Boter",             hoeveelheid: 11, eenheid: "g" },
+      { naam: "Vloeiende bloem",                hoeveelheid: 8,33, eenheid: "g" },
+      { naam: "Melk",             hoeveelheid: 0.125, eenheid: "l" },
+      { naam: "Gekookte hesp",                   hoeveelheid: 2, eenheid: "sneedjes" },
+      { naam: "Totelinni",             hoeveelheid: 170,   eenheid: "g" },
+      { naam: "Gruyère kaas",       hoeveelheid: 30, eenheid: "g" }
+    ],
+    stappen: [
+      "Laat de boter smelten in ruime kookpot met goede bodemn en haal nadien pot van het vuur.",
+      "Vloeiende bloem toevoegen en goed roeren.",
+      "Melk toevoegen en goed roeren.",
+      "Verder de pot aan de kook brengen op zacht vuur al roerend.",
+      "Champignons ondertussen kuisen en in schijfjes snijden.",
+      "Champignons bakken in pan (geen olie nodig).",
+      "snij de hesp in kleine vierkante stukjes.",
+      "Wanneer saus kookt van het vuur halen.",
+      "Gruyère toevoegen en goed roeren.",
+      "Hesp toevoegen en goed roeren.",
+      "Voeg nog een beetje nootmuskaat toe.",
+      "Voeg de hesp en de champignons toe.",
+      "Kook de tortelinni.",
+      "Verdeel de tortinni in een overschotel.",
+      "Giet de saus hierover en voorzichtig de tortinni mengen met de saus.",
+      "Voeg nog wat gruyere bovenop.",
+      "Schotel even laten grillen tot er een korstje verschijnt."
+    ],
+    
+  },    
 ];
