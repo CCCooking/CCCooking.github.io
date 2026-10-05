@@ -142,7 +142,8 @@ const recepten = [
       { naam: "Melk",             hoeveelheid: 0.125, eenheid: "l" },
       { naam: "Gekookte hesp",                   hoeveelheid: 2, eenheid: "sneedjes" },
       { naam: "Totelinni",             hoeveelheid: 170,   eenheid: "g" },
-      { naam: "Gruyère kaas",       hoeveelheid: 30, eenheid: "g" }
+      { naam: "Gruyère kaas",       hoeveelheid: 30, eenheid: "g" },
+      { naam: "Champignons",       hoeveelheid: 41.66, eenheid: "g" }
     ],
     stappen: [
       "Laat de boter smelten in ruime kookpot met goede bodemn en haal nadien pot van het vuur.",
